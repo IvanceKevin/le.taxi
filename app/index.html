@@ -84,10 +84,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Users</span>
           </a>
 
+          <a data-route="map" href="{{baseUrl}}map">
+            <iron-icon icon="map"></iron-icon>
+            <span>Carte</span>
+          </a>
+
+          <a data-route="search" href="{{baseUrl}}search">
+            <iron-icon icon="search"></iron-icon>
+            <span>Rechercher</span>
+          </a>
+
           <a data-route="contact" href="{{baseUrl}}contact">
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
           </a>
+          
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -175,6 +186,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h2 class="page-title">Contact</h2>
                 <p>This is the contact section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="search">
+              <paper-material elevation="1">
+                <h2 class="page-title">Rechercher</h2>
+                <p>Page de recherche d'un taxi</p>
+              </paper-material>
+            </section>
+
+            <section data-route="map">
+              <paper-material elevation="1">
+                <h2 class="page-title">Map</h2>
+                    <style>
+                      google-map {
+                        height: 600px;
+                      }
+                    </style>
+                    <google-map latitude="37.779" longitude="-122.3892">
+                      <google-map-marker latitude="37.779" longitude="-122.3892" title="Taxi 1!"></google-map-marker>
+                      <google-map-poly closed fill-color="blue" fill-opacity=".25" stroke-weight="1">
+                        <google-map-point latitude="37.779" longitude="-122.3892"></google-map-point>
+                        <google-map-point latitude="37.804" longitude="-122.2711"></google-map-point>
+                        <google-map-point latitude="37.386" longitude="-122.0837"></google-map-point>
+                        <google-map-point latitude="37.450" longitude="-122.1245"></google-map-point>
+                      </google-map-poly>
+                    </google-map>
+
+
+
               </paper-material>
             </section>
 
