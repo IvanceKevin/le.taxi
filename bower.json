@@ -1,0 +1,21 @@
+{
+  "name": "le.taxi",
+  "homepage": "https://github.com/IvanceKevin/le.taxi",
+  "authors": [
+    "Orodan <jimmykasprzak@gmail.com>"
+  ],
+  "description": "Application taxi",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "taxi"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
