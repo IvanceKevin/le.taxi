@@ -214,6 +214,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       </google-map-poly>
                     </google-map>
 
+                    <br><br>Ajout de la géolocalisation<br><br>
+                    
+                     <geo-location latitude="{{lat}}"
+                                   longitude="{{lng}}"></geo-location>
+                     <google-map latitude="[[lat]]" longitude="[[lng]]">
+                       <google-map-marker latitude="[[lat]]" longitude="[[lng]]"></google-map-marker>
+                     </google-map>
 
 
               </paper-material>
