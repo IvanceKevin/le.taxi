@@ -1,19 +1,13 @@
-Welcome to Polymer Starter Kit Light!
 
-To begin, fire up a local server from inside the `app` directory. Please make sure to serve up the contents of the directory rather than root as routing will otherwise fail to correctly function.
+=======
+Install Bower
+Bower is a command line utility. Install it with npm.
+$ npm install -g bower
 
-## Firing up a server using Python
+Key le.taxi : 46F06ED1-O124-4EDC9283-0DF69FA604EF4
 
 If you are a Windows user, install Python and from inside the `app` directory run:
 
 ```
 python -m http.server 8080
 ```
-
-or on a Mac/*nix machine, run:
-
-```
-python -m SimpleHTTPServer 8080
-```
-
-You can of course also use WAMP or an alternative tool for serving up content. 
