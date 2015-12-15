@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/google-map/google-map-marker.html">
+
+<dom-module id="taxi-button">
+  <template>
+    <paper-button name="test" raised on-tap="callApi">Get taxis around you</paper-button>
+    <iron-ajax id="ajax" method="get" url="/taxis" on-response="getComplete"></iron-ajax>
+
+    <section data-route="map">
+      <paper-material elevation="1">
+        <h2 class="page-title">Map</h2>
+            <style>
+              google-map {
+                height: 600px;
+              }
+            </style>
+            
+             <geo-location latitude="{{lat}}"
+                           longitude="{{lng}}"></geo-location>
+             <google-map id="my_google_map" latitude="[[lat]]" longitude="[[lng]]">
+               <google-map-marker latitude="[[lat]]" longitude="[[lng]]"></google-map-marker>
+               <template is="dom-repeat" items="[[data]]">
+                  <google-map-marker latitude="[[item.position.lat]]" longitude="[[item.position.lon]]" title="[[item.ads.numero]]">
+                  <p>[[item.vehicle.constructor]] [[item.vehicle.model]]</p>
+                  </google-map-marker>
+              </template>
+             </google-map>
+
+
+      </paper-material>
+    </section>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'taxi-button',
+        properties: {
+          data: Array,
+          lat: String,
+          lng: String
+        },
+        callApi: function(e) {
+            // console.log('lat : ', lat);
+            this.lat = this.$.my_google_map.latitude;
+            this.lng = this.$.my_google_map.longitude;
+            console.log(this.lat);
+            console.log(this.lng);
+
+            this.$.ajax.url += "?lat=" + this.lat + "&lng=" + this.lng;
+            this.$.ajax.generateRequest();
+        },
+
+        // Callback on request complete
+        getComplete: function (data) {
+            this.data = data.detail.response;
+            console.log('this.data : ', this.data);            
+        }
+      })
+    })();
+  </script>
+</dom-module>
