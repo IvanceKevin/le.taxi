@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit" />
-  <title>Tesla Taxi</title>
+  <title>Tesla Taxi ?</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -109,18 +109,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="flex"></span>
 
-          <!-- Toolbar icons -->
+          <!-- Toolbar icons 
           <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>-->
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
-            <div class="app-name">>Tesla Taxi</div>
+            <div class="app-name">Tesla Taxi ?</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">The future of the web today</div>
+            <div class="bottom-title paper-font-subhead">Les taxis près de vous.</div>
           </div>
 
         </paper-toolbar>
@@ -313,23 +313,77 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       google-map {
                         height: 600px;
                       }
+                      paper-dialog.colored {
+                        border: 2px solid;
+                        border-color: var(--paper-green-500);
+                        background-color: var(--paper-light-green-50);
+                        color: var(--paper-green-500);
+                      }
+                      paper-dialog.paper-dialog-0 {
+                        background: white;
+                      }
+                      paper-dialog.size-position {
+                        position: fixed;
+                        top: 16px;
+                        right: 16px;
+                        width: 300px;
+                        height: 300px;
+                        overflow: auto;
+                      }
+                      #paperbutton {
+                        background: #e35813;
+                      }
                     </style>
+                    <paper-dialog id="reserver" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+                      <h2>Réservation</h2>
+                      <paper-dialog-scrollable>
+                        Fenêtre de réservation d'un taxi
+                        <form is="iron-form" id="formPost" method="post" action="/">
+                          <paper-input name="name" label="Nom" required></paper-input>
+                          <paper-input name="phone-number" label="Numéro téléphone" required></paper-input>  
+                          <paper-dropdown-menu label="Délai" name="delais" required>
+                            <paper-menu class="dropdown-content">
+                              <paper-item>Immédiat</paper-item>
+                              <paper-item>15 min</paper-item>
+                              <paper-item>30 min</paper-item>
+                              <paper-item>45 min</paper-item>
+                              <paper-item>1h</paper-item>
+                            </paper-menu>
+                          </paper-dropdown-menu>
+                          <br>
+                          <div class="buttons">
+                            <paper-button dialog-dismiss>Annuler</paper-button>
+                            <paper-button type="submit" dialog-confirm>Réserver</paper-button>
+                          </div>  
+                        </form>
+                      </paper-dialog-scrollable>
+                      
+                    </paper-dialog>
                     <google-map latitude="37.779" longitude="-122.3892">
-                      <google-map-marker latitude="37.779" longitude="-122.3892" title="Taxi 1!">
-                        <p>Coucou Taxi 1</p>
+                      <google-map-marker latitude="37.779" longitude="-122.3892" title="Taxi 1!"
+                      icon="images/taxi.png">
+                        <p>Quelques information sur le taxi 1</p>
+                        <p>- Conducteur</p>
+                        <p>- Voiture</p>
+                        <p>- Status</p>
+                        <paper-button id="paperbutton" onclick="clickHandler(event)" data-dialog="reserver">Réserver</paper-button>
                       </google-map-marker>
-                      <google-map-marker latitude="37.509" longitude="-122.3892" title="Taxi 2!">
-                        <p>Coucou Taxi 2</p>
+                      <google-map-marker latitude="37.509" longitude="-122.3892" title="Taxi 2!"
+                      icon="images/taxi.png">
+                        <p>Quelques information sur le taxi 2</p>
+                        <p>- Conducteur</p>
+                        <p>- Voiture</p>
+                        <p>- Status</p>
+                        <paper-button id="paperbutton" onclick="clickHandler(event)" data-dialog="reserver">Réserver</paper-button>
                       </google-map-marker>
-                      <google-map-marker latitude="37.779" longitude="-122.2892" title="Taxi 3!">
-                        <p>Coucou Taxi 3</p>
+                      <google-map-marker latitude="37.779" longitude="-122.2892" title="Taxi 3!"
+                        icon="images/taxi.png">
+                        <p>Quelques information sur le taxi 3</p>
+                        <p>- Conducteur</p>
+                        <p>- Voiture</p>
+                        <p>- Status</p>
+                        <paper-button id="paperbutton" onclick="clickHandler(event)" data-dialog="reserver">Réserver</paper-button>
                       </google-map-marker>
-                      <google-map-poly closed fill-color="blue" fill-opacity=".25" stroke-weight="1">
-                        <google-map-point latitude="37.779" longitude="-122.3892"></google-map-point>
-                        <google-map-point latitude="37.804" longitude="-122.2711"></google-map-point>
-                        <google-map-point latitude="37.386" longitude="-122.0837"></google-map-point>
-                        <google-map-point latitude="37.450" longitude="-122.1245"></google-map-point>
-                      </google-map-poly>
                     </google-map>
 
                     <br><br>Ajout de la géolocalisation<br><br>
@@ -338,15 +392,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                    longitude="{{lng}}"></geo-location>
                      <google-map latitude="[[lat]]" longitude="[[lng]]">
                        <google-map-marker latitude="[[lat]]" longitude="[[lng]]"></google-map-marker>
+
                      </google-map>-->
 
                      <google-map-directions map="{{map}}"
-                          start-address="San Francisco"
-                          end-address="San Jose"
-                          travel-mode="DRIVING"
-                          waypoints='[{"location": "Palo Alto"}, {"location": "San Mateo"}]'></google-map-directions>
-                      <google-map map="{{map}}" latitude="37.779"
-                                  longitude="-122.3892"></google-map>
+                          start-address="La Rochelle"
+                          end-address="Paris"
+                          travel-mode="DRIVING"></google-map-directions>
+                      <google-map map="{{map}}" latitude="[[lat]]"
+                                  longitude="[[lng]]"></google-map>
 
               </paper-material>
             </section>
@@ -361,6 +415,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-toast>
 
   </template>
+
+  <script>
+    function clickHandler(e) {
+      var button = e.target;
+      while (!button.hasAttribute('data-dialog') && button !== document.body) {
+        button = button.parentElement;
+      }
+      if (!button.hasAttribute('data-dialog')) {
+        return;
+      }
+      var id = button.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+        dialog.open();
+      }
+    }
+  </script>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
