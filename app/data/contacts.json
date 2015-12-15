@@ -1,0 +1,27 @@
+[
+  {
+    "index": 0,
+    "name": "Question",
+    "expanded": false,
+    "shortText": "Avez vous des question ?",
+    "longText": "Les questions....",
+    "icons": "icons:help"
+  },
+  {
+    "index": 1,
+    "name": "Idée",
+    "expanded": false,
+    "shortText": "Avez vous des idées d'amélioration?",
+    "longText": "Ici nous parlerons des idées que l'on pourrait implémenter...",
+    "icons": "icons:info"
+  },
+  {
+    "index": 2,
+    "name": "Anomalie",
+    "expanded": false,
+    "shortText": "Avez vous des anomalies?",
+    "longText": "Ici nous parlerons des bugs que l'on rencontre...",
+    "icons": "icons:bug-report"
+  }
+  
+]
