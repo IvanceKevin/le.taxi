@@ -79,16 +79,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Accueil</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
+          <a data-route="taxi" href="{{baseUrl}}taxis">
             <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <span>Liste Taxi</span>
           </a>
 
           <a data-route="map" href="{{baseUrl}}map">
             <iron-icon icon="map"></iron-icon>
             <span>Carte</span>
           </a>
-
           <a data-route="search" href="{{baseUrl}}search">
             <iron-icon icon="search"></iron-icon>
             <span>Rechercher</span>
@@ -164,7 +163,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             </section>
 
-            <section data-route="users">
+            <section data-route="taxis">
               <paper-material elevation="1">
                 <h2 class="page-title">Users</h2>
                 <p>This is the users section</p>
@@ -193,6 +192,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h2 class="page-title">Rechercher</h2>
                 <p>Page de recherche d'un taxi</p>
+                <input name="q" class="search-field" type="text" id="search-field" autocomplete="off">
               </paper-material>
             </section>
 
