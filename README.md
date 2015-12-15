@@ -30,4 +30,9 @@ Ligne à ajouter dans bower_components/iron-icons/iron-icons.html :
 2.11V19z"/></g>
 ```
 
+SI vous utilisez un proxy !!
+npm config set proxy http://proxy.company.com:8080
+
+npm config set https-proxy http://proxy.company.com:8080
+
 Ne pas oublier de faire un bower install dans le dossier /app (pour le nouvel élément)
