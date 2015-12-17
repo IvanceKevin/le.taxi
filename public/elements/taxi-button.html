@@ -13,19 +13,57 @@
     <section data-route="map">
       <paper-material elevation="1">
         <h2 class="page-title">Map</h2>
+           
             <style>
               google-map {
                 height: 600px;
               }
+              paper-dialog.colored {
+                border: 2px solid;
+                border-color: var(--paper-green-500);
+                background-color: var(--paper-light-green-50);
+                color: var(--paper-green-500);
+              }
+              paper-dialog.paper-dialog-0 {
+                background: white;
+              }
+              paper-dialog.size-position {
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                width: 300px;
+                height: 300px;
+                overflow: auto;
+              }
+              #paperbutton {
+                background: #e35813;
+              }
             </style>
+            <paper-dialog id="reserver" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+              <h2>Réservation</h2>
+              <paper-dialog-scrollable>
+                Fenêtre de réservation d'un taxi
+                <form is="iron-form" id="formPost" method="post" action="/">
+                  <paper-input name="name" label="Nom" required></paper-input>
+                  <paper-input name="phone-number" label="Numéro téléphone" required></paper-input>
+                  <div class="buttons">
+                    <paper-button dialog-dismiss>Annuler</paper-button>
+                    <paper-button type="submit" dialog-confirm>Réserver</paper-button>
+                  </div>  
+                </form>
+              </paper-dialog-scrollable>
+              
+            </paper-dialog>
             
              <geo-location latitude="{{lat}}"
                            longitude="{{lng}}"></geo-location>
              <google-map id="my_google_map" latitude="[[lat]]" longitude="[[lng]]">
                <google-map-marker latitude="[[lat]]" longitude="[[lng]]"></google-map-marker>
                <template is="dom-repeat" items="[[data]]">
-                  <google-map-marker latitude="[[item.position.lat]]" longitude="[[item.position.lon]]" title="[[item.ads.numero]]">
-                  <p>[[item.vehicle.constructor]] [[item.vehicle.model]]</p>
+                  <google-map-marker  icon="../images/taxi.png" latitude="[[item.position.lat]]" longitude="[[item.position.lon]]" title="[[item.ads.numero]]">
+                  <p>[[item.vehicle.constructor]]</p>
+                  <p>[[item.vehicle.model]]</p>
+                  <paper-button id="paperbutton" onclick="clickHandler(event)" data-dialog="reserver">Réserver</paper-button>
                   </google-map-marker>
               </template>
              </google-map>
