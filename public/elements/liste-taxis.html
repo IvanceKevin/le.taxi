@@ -1,0 +1,49 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/google-map/google-map-marker.html">
+
+<dom-module id="liste-taxis">
+  <template>
+        <h2 class="page-title">Liste des taxis</h2>
+        <paper-button name="test" raised on-tap="callApi">List taxis</paper-button>
+        <iron-ajax id="ajax" method="get" url="/taxis" on-response="getComplete"></iron-ajax>
+        <template is="dom-repeat" items="[[data]]">
+            <br>
+            <div class="primary">Marque : </div><div class="shortText">[[item.vehicle.constructor]]</div>
+            <div class="primary">Modèle : </div><div class="shortText">[[item.vehicle.model]]</div>
+            <div class="primary">Couleur : </div><div class="shortText">[[item.vehicle.color]]</div>
+            <div class="primary">Plaque immatriculation : </div><div class="shortText">[[item.vehicle.licence_plate]]</div>
+            <div class="primary">Nombre places : </div><div class="shortText">[[item.vehicle.nb_seats]]</div>
+            <div class="primary">Département conducteur : </div><div class="shortText">[[item.driver.departement]]</div>
+            <div class="primary">Licence conducteur : </div><div class="shortText">[[item.driver.professional_licence]]</div>
+          </template>
+        </iron-list>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'liste-taxis',
+        properties: {
+          data: Array,
+          lat: String,
+          lng: String
+        },
+        callApi: function(e) {
+            this.$.ajax.generateRequest();
+        },
+
+        // Callback on request complete
+        getComplete: function (data) {
+            this.data = data.detail.response;
+            console.log('this.data : ', this.data);            
+        }
+      })
+    })();
+  </script>
+</dom-module>

@@ -55,6 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- endreplace-->
 
   <link rel="import" href="elements/taxi-button.html"> 
+  <link rel="import" href="elements/liste-taxis.html"> 
 
   <!-- For shared styles, shared-styles.html import in elements.html -->
   <style is="custom-style" include="shared-styles"></style>
@@ -143,12 +144,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <section data-route="taxis">
                 <paper-material elevation="1">
-                  <h2 class="page-title">Users</h2>
-                  <p>This is the users section</p>
-                  <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                  <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                  <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                  <a href$="{{baseUrl}}users/Sam">Sam</a>
+                  <liste-taxis></liste-taxis>       
                 </paper-material>
               </section>
 
